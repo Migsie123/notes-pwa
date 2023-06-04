@@ -1,0 +1,75 @@
+.note {
+  width: 100%;
+  text-transform: capitalize;
+  font-size: 1.6rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  .plus,
+  .minus,
+  .text,
+  .counter {
+    background: #dbc9f8;
+    box-shadow: 20px 20px 60px #b1a1e3, -20px -20px 60px #e3d9ff;
+    border-radius: 25px;
+    min-height: 80px;
+    display: inline-flex;
+    align-items: center;
+  }
+  .text {
+    flex: 1;
+    align-self: stretch;
+    padding: 20px 40px;
+    font-size: 1.6rem;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    .complete {
+      opacity: 0;
+      pointer-events: none;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      width: 100%;
+      backdrop-filter: blur(5px);
+      z-index: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      svg{
+        height: 100%;
+        width: auto;
+        padding: 20px;
+        fill: #333;
+        max-height: 80px;
+      }
+    }
+  }
+
+  .plus,
+  .minus,
+  .counter {
+    aspect-ratio: 1;
+    justify-content: center;
+    font-size: 2rem;
+    line-height: 2rem;
+    z-index: 1;
+  }
+  .plus,
+  .minus {
+    span {
+      margin-top: -3px;
+    }
+  }
+
+  &.active {
+    .complete {
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+}
