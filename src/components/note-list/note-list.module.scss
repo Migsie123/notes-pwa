@@ -18,12 +18,10 @@
   .list {
     width: 100%;
     list-style: none;
-    li{
+    .note {
+      font-size: 1rem;
       width: 100%;
       margin-bottom: 20px;
-    }
-    .note{
-      font-size: 1rem;
     }
   }
 }

@@ -33,12 +33,12 @@ export const NotesContextProvider = ({ children }: { children: any }) => {
     _setNotes([...notes, new Note(text)]);
   };
   const deleteNote = (note: Note) => {
-    const newNotes = notes.filter((n) => n.uuid !== note.uuid);
+    const newNotes = notes.filter((n) => n.id !== note.id);
     _setNotes(newNotes);
   };
   const updateNote = (note: Note, newText: string) => {
     const newNotes = notes.map((n) => {
-      if (n.uuid === note.uuid) {
+      if (n.id === note.id) {
         n.setText(newText);
       }
       return n;
@@ -47,7 +47,7 @@ export const NotesContextProvider = ({ children }: { children: any }) => {
   };
   const increaseNote = (note: Note) => {
     const newNotes = notes.map((n) => {
-      if (n.uuid === note.uuid) {
+      if (n.id === note.id) {
         n.counter++;
       }
       return n;
@@ -56,7 +56,7 @@ export const NotesContextProvider = ({ children }: { children: any }) => {
   };
   const decreaseNote = (note: Note) => {
     const newNotes = notes.map((n) => {
-      if (n.uuid === note.uuid) {
+      if (n.id === note.id) {
         n.counter--;
       }
       return n;
@@ -65,7 +65,7 @@ export const NotesContextProvider = ({ children }: { children: any }) => {
   };
   const forceNotes = (notes: Note[]) => {
     setNotes(notes);
-    _setNotes(notes);
+    _setNotes(notes); 
   };
   
 

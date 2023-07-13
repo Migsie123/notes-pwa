@@ -7,7 +7,7 @@ import Checkmark from "@/resources/checkmark";
 
 export class Note {
   text: string;
-  uuid: string;
+  id: string;
   counter: number;
   createdAt: Date;
   updatedAt: Date;
@@ -16,7 +16,7 @@ export class Note {
 
   constructor(text: string) {
     this.text = text;
-    this.uuid = uuidv4();
+    this.id = uuidv4();
     this.counter = 1;
     this.createdAt = new Date();
     this.updatedAt = new Date();
@@ -51,8 +51,6 @@ export default function NoteComponent({
     if (onClick) onClick(note);
   };
 
-  console.log("class", className);
-
   return (
     <div
       className={classNames(styles.note, className, {
@@ -65,7 +63,7 @@ export default function NoteComponent({
         whileTap={{ scale: 0.9 }}
         onClick={handleOnClick}
       >
-        <span>{note.text}</span>
+        <span>{note.text}{note.completedAt?.toDateString()}</span>
         <div className={styles.complete}>
           <Checkmark />
         </div>
